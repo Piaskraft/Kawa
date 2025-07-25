@@ -1,0 +1,16 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Kawa Arabica",
+      "price": 25,
+      "image": "images/kawa1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Kawa Robusta",
+      "price": 20,
+      "image": "images/kawa2.jpg"
+    }
+  ]
+}

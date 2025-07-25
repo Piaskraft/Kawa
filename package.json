@@ -1,0 +1,28 @@
+{
+  "name": "kawa-project",
+  "version": "1.0.0",
+  "description": "Projekt strony kawiarni - Kodilla",
+  "scripts": {
+    "init-project": "gulp init",
+    "watch": "gulp watch",
+    "test": "npm-run-all test:*",
+    "test:html": "html-validate src/*.html",
+    "test:js": "eslint --fix src/js/",
+    "test:scss": "stylelint --fix src/sass/",
+    "build": "npm-run-all build:* test",
+    "build:clean": "rimraf dist && mkdirp dist",
+    "build:copy": "copyfiles -a -u 1 -e \"**/sass\" \"src/**/*\" dist",
+    "build:css": "sass src/sass/style.scss dist/css/style.css --no-source-map",
+    "build:js": "uglifyjs \"src/js/*.js\" -o \"dist/js/script.js\"",
+    "serve": "browser-sync start --server dist --files \"dist\""
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "del": "^8.0.0",
+    "gulp": "^5.0.1",
+    "gulp-cli": "^3.1.0",
+    "gulp-copy": "^5.0.0",
+    "gulp-sass": "^6.0.1",
+    "sass": "^1.89.2"
+  }
+}

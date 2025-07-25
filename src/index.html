@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kawa</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- STRONA GŁÓWNA -->
+        <section id="home" class="page">
+            <section class="hero">
+                <h1>Welcome to Venezuela Coffee</h1>
+                <p>The finest beans from South America</p>
+                <a href="#products" class="btn">Shop Now</a>
+            </section>
+
+            <section class="about">
+                <img src="images/coffee-bag.png" alt="Coffee Bag" />
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>We roast coffee using traditional methods passed down through generations...</p>
+                </div>
+            </section>
+        </section>
+
+        <!-- PRODUKTY -->
+        <section id="products" class="page">
+            <h2>Our Products</h2>
+            <div class="product-list"></div>
+        </section>
+
+        <!-- KONTAKT -->
+        <section id="contact" class="page">
+            <h2>Contact Us</h2>
+            <form>
+                <label>
+                    Name:
+                    <input type="text" name="name" required />
+                </label>
+                <label>
+                    Email:
+                    <input type="email" name="email" required />
+                </label>
+                <label>
+                    Message:
+                    <textarea name="message" required></textarea>
+                </label>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
