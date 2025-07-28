@@ -5,7 +5,7 @@
   "scripts": {
     "init-project": "gulp init",
     "watch": "npm-run-all --parallel watch:scss watch:js watch:html watch:images watch:serve",
-   "watch:scss": "sass --watch src/sass/style.scss dist/css/style.css",
+    "watch:scss": "sass --watch src/sass/style.scss dist/css/style.css",
     "watch:js": "onchange 'src/js/**/*.js' -- npm run build:js",
     "watch:html": "onchange 'src/**/*.html' -- npm run build:copy",
     "watch:images": "onchange 'src/images/**/*' -- npm run build:copy",
@@ -19,9 +19,12 @@
     "build:copy": "copyfiles -a -u 1 -e \"**/sass\" \"src/**/*\" dist",
     "build:css": "sass src/sass/style.scss dist/css/style.css --no-source-map",
     "build:js": "uglifyjs \"src/js/*.js\" -o \"dist/js/script.js\"",
-    "serve": "browser-sync start --server dist --files \"dist\""
+    "serve": "browser-sync start --server dist --files \"dist\"",
+    "serve:api": "json-server --watch db/db.json --port 3131",
+    "dev": "npm-run-all --parallel serve:api watch"
   },
   "devDependencies": {
+    "json-server": "^0.17.3",
     "browser-sync": "^3.0.4",
     "copyfiles": "^2.4.1",
     "del": "^8.0.0",

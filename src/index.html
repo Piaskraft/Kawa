@@ -65,8 +65,16 @@
 <script id="template-product" type="text/x-handlebars-template">
   <div class="product">
     <img src="{{image}}" alt="{{name}}">
+    {{#if badge}}
+      <span class="badge">{{badge}}</span>
+    {{/if}}
     <h3>{{name}}</h3>
-    <p>{{price}} €</p>
+    <p class="desc">{{description}}</p>
+    <p class="meta">
+      Roasting: {{roasting}} / 10<br>
+      Intensity: {{intensity}} / 10
+    </p>
+    <p class="price">{{price}} €</p>
   </div>
 </script>
 

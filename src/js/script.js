@@ -1,48 +1,59 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const pages = document.querySelectorAll('.page');
+  const navLinks = document.querySelectorAll('.main-nav a');
+
+  // Przygotowujemy listę i szablon Handlebars
   const productList = document.querySelector('.product-list');
   const templateSource = document.querySelector('#template-product').innerHTML;
   const productTemplate = Handlebars.compile(templateSource);
 
-  fetch('/products')
-    .then(response => response.json())
-    .then(data => {
-      data.forEach(product => {
-        const generatedHTML = productTemplate(product);
-        const element = document.createElement('div');
-        element.innerHTML = generatedHTML;
-        productList.appendChild(element.firstElementChild);
-      });
-    })
-    .catch(error => {
-      console.error('Błąd podczas pobierania produktów:', error);
+  function activatePage(id) {
+    // 1) Pokaż/ukryj sekcje .page
+    pages.forEach(page => {
+      page.classList.toggle('active', page.id === id);
     });
 
-  function initPages() {
-    const pages = document.querySelectorAll('.page');
-    const navLinks = document.querySelectorAll('.main-nav a');
+    // 2) Podświetl aktywny link
+    navLinks.forEach(link => {
+      link.classList.toggle(
+        'active',
+        link.getAttribute('href') === '#' + id
+      );
+    });
 
-    function activatePage(id) {
-      for (let page of pages) {
-        page.classList.toggle('active', page.id === id);
-      }
+    // 3) Jeśli to strona #products – pobierz i wyrenderuj produkty
+    if (id === 'products') {
+      productList.innerHTML = ''; // czyścimy listę
 
-      for (let link of navLinks) {
-        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-      }
-    }
+      fetch('http://localhost:3131/products')
+        .then(res => res.json())
+        .then(data => {
+          console.log('Otrzymane data:', data);
 
-    const idFromHash = window.location.hash.replace('#', '') || 'home';
-    activatePage(idFromHash);
-
-    for (let link of navLinks) {
-      link.addEventListener('click', function (event) {
-        event.preventDefault();
-        const clickedId = link.getAttribute('href').replace('#', '');
-        activatePage(clickedId);
-        window.location.hash = '#' + clickedId;
-      });
+          data.forEach(product => {
+            const html = productTemplate(product);
+            const wrapper = document.createElement('div');
+            wrapper.innerHTML = html;
+            productList.appendChild(wrapper.firstElementChild);
+          });
+        })
+        .catch(err => {
+          console.error('Błąd podczas pobierania produktów:', err);
+        });
     }
   }
 
-  initPages();
+  // 4) Wybierz stronę startową (hash lub 'home')
+  const startPage = window.location.hash.replace('#', '') || 'home';
+  activatePage(startPage);
+
+  // 5) Obsługa kliknięć w menu
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').replace('#', '');
+      activatePage(targetId);
+      window.location.hash = '#' + targetId;
+    });
+  });
 });
