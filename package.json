@@ -4,12 +4,17 @@
   "description": "Projekt strony kawiarni - Kodilla",
   "scripts": {
     "init-project": "gulp init",
-    "watch": "gulp watch",
+    "watch": "npm-run-all --parallel watch:scss watch:js watch:html watch:images watch:serve",
+   "watch:scss": "sass --watch src/sass/style.scss dist/css/style.css",
+    "watch:js": "onchange 'src/js/**/*.js' -- npm run build:js",
+    "watch:html": "onchange 'src/**/*.html' -- npm run build:copy",
+    "watch:images": "onchange 'src/images/**/*' -- npm run build:copy",
+    "watch:serve": "browser-sync start --server dist --files \"dist\"",
     "test": "npm-run-all test:*",
     "test:html": "html-validate src/*.html",
     "test:js": "eslint --fix src/js/",
     "test:scss": "stylelint --fix src/sass/",
-    "build": "npm-run-all build:* test",
+    "build": "npm-run-all build:clean build:copy build:css build:js test",
     "build:clean": "rimraf dist && mkdirp dist",
     "build:copy": "copyfiles -a -u 1 -e \"**/sass\" \"src/**/*\" dist",
     "build:css": "sass src/sass/style.scss dist/css/style.css --no-source-map",
@@ -18,11 +23,20 @@
   },
   "devDependencies": {
     "browser-sync": "^3.0.4",
+    "copyfiles": "^2.4.1",
     "del": "^8.0.0",
+    "eslint": "^8.56.0",
     "gulp": "^5.0.1",
     "gulp-cli": "^3.1.0",
     "gulp-copy": "^5.0.0",
     "gulp-sass": "^6.0.1",
-    "sass": "^1.89.2"
+    "html-validate": "^7.18.0",
+    "mkdirp": "^3.0.1",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "rimraf": "^5.0.1",
+    "sass": "^1.89.2",
+    "stylelint": "^15.11.0",
+    "uglify-js": "^3.17.4"
   }
 }

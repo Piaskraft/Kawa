@@ -2,15 +2,33 @@
   "products": [
     {
       "id": 1,
-      "name": "Kawa Arabica",
+      "name": "La Lagartija",
       "price": 25,
-      "image": "images/kawa1.jpg"
+      "image": "images/kawa1.jpg",
+      "description": "Mysterious and treacherous... the best choice for the start of your journey! It will provide a rich delicious flavor.",
+      "roasting": 5,
+      "intensity": 6,
+      "badge": "Most Popular"
     },
     {
       "id": 2,
-      "name": "Kawa Robusta",
+      "name": "El Tigre",
       "price": 20,
-      "image": "images/kawa2.jpg"
+      "image": "images/kawa2.jpg",
+      "description": "Heavily dark coffee, only for the real gourmets. It has bitter flavor of grapefruit and is mixed with a little bit of peanuts with caramel.",
+      "roasting": 8,
+      "intensity": 9,
+      "badge": ""
+    },
+    {
+      "id": 3,
+      "name": "La Cucaracha",
+      "price": 18,
+      "image": "images/coffee-3.png",
+      "description": "Balanced and sweet blend, ideal for lazy Sunday mornings. A classic taste with a slight twist.",
+      "roasting": 4,
+      "intensity": 5,
+      "badge": ""
     }
   ]
 }

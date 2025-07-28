@@ -28,7 +28,7 @@
             </section>
 
             <section class="about">
-                <img src="images/coffee-bag.png" alt="Coffee Bag" />
+                <img src="images/kawa1.jpg" alt="kawa1.jpg" >
                 <div class="about-text">
                     <h2>Our Story</h2>
                     <p>We roast coffee using traditional methods passed down through generations...</p>
@@ -48,11 +48,11 @@
             <form>
                 <label>
                     Name:
-                    <input type="text" name="name" required />
+                    <input type="text" name="name" required >
                 </label>
                 <label>
                     Email:
-                    <input type="email" name="email" required />
+                    <input type="email" name="email" required >
                 </label>
                 <label>
                     Message:
@@ -62,6 +62,17 @@
             </form>
         </section>
     </main>
+<script id="template-product" type="text/x-handlebars-template">
+  <div class="product">
+    <img src="{{image}}" alt="{{name}}">
+    <h3>{{name}}</h3>
+    <p>{{price}} €</p>
+  </div>
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+
 
     <script src="js/script.js"></script>
 </body>

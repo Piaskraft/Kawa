@@ -1,1 +1,1 @@
-console.log('Hello Kawa');
+document.addEventListener("DOMContentLoaded",()=>{console.log("JS działa!")});
