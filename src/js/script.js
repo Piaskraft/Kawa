@@ -1,20 +1,20 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const pages = document.querySelectorAll('.page');
-  const navLinks = document.querySelectorAll('.main-nav a');
+document.addEventListener('DOMContentLoaded', function () {
+  var pages = document.querySelectorAll('.page');
+  var navLinks = document.querySelectorAll('.main-nav a');
 
-  // Przygotowujemy listę i szablon Handlebars
-  const productList = document.querySelector('.product-list');
-  const templateSource = document.querySelector('#template-product').innerHTML;
-  const productTemplate = Handlebars.compile(templateSource);
+  // Przygotowujemy szablon Handlebars i kontener
+  var productGrid = document.querySelector('.products__grid');
+  var templateSource = document.querySelector('#template-product').innerHTML;
+  var productTemplate = Handlebars.compile(templateSource);
 
   function activatePage(id) {
     // 1) Pokaż/ukryj sekcje .page
-    pages.forEach(page => {
+    pages.forEach(function (page) {
       page.classList.toggle('active', page.id === id);
     });
 
     // 2) Podświetl aktywny link
-    navLinks.forEach(link => {
+    navLinks.forEach(function (link) {
       link.classList.toggle(
         'active',
         link.getAttribute('href') === '#' + id
@@ -23,35 +23,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3) Jeśli to strona #products – pobierz i wyrenderuj produkty
     if (id === 'products') {
-      productList.innerHTML = ''; // czyścimy listę
+      productGrid.innerHTML = ''; // czyścimy siatkę
 
       fetch('http://localhost:3131/products')
-        .then(res => res.json())
-        .then(data => {
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
           console.log('Otrzymane data:', data);
-
-          data.forEach(product => {
-            const html = productTemplate(product);
-            const wrapper = document.createElement('div');
+          data.forEach(function (product, index) {
+            var html = productTemplate(product);
+            var wrapper = document.createElement('div');
             wrapper.innerHTML = html;
-            productList.appendChild(wrapper.firstElementChild);
+            var card = wrapper.firstElementChild;
+            // opcjonalnie: co drugi element obróć układ
+            if (index % 2 === 1) {
+              card.classList.add('odd');
+            }
+            productGrid.appendChild(card);
           });
         })
-        .catch(err => {
+        .catch(function (err) {
           console.error('Błąd podczas pobierania produktów:', err);
         });
     }
   }
 
   // 4) Wybierz stronę startową (hash lub 'home')
-  const startPage = window.location.hash.replace('#', '') || 'home';
+  var startPage = window.location.hash.replace('#', '') || 'home';
   activatePage(startPage);
 
   // 5) Obsługa kliknięć w menu
-  navLinks.forEach(link => {
-    link.addEventListener('click', e => {
+  navLinks.forEach(function (link) {
+    link.addEventListener('click', function (e) {
       e.preventDefault();
-      const targetId = link.getAttribute('href').replace('#', '');
+      var targetId = link.getAttribute('href').replace('#', '');
       activatePage(targetId);
       window.location.hash = '#' + targetId;
     });

@@ -1,0 +1,13 @@
+.about {
+  position:relative; color:$color-white; text-align:center;
+  background: url('../images/about-us.jpg') center/cover no-repeat;
+  padding:6rem 2rem;
+  &::before {
+    content:''; position:absolute; inset:0; background:rgba(0,0,0,0.5);
+  }
+  .section-title { color:$color-gold; position:relative; z-index:2; }
+  &__text {
+    position:relative; z-index:2;
+    max-width:600px; margin:2rem auto; font-style:italic; line-height:1.6;
+  }
+}

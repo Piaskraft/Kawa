@@ -13,7 +13,7 @@
     "test": "npm-run-all test:*",
     "test:html": "html-validate src/*.html",
     "test:js": "eslint --fix src/js/",
-    "test:scss": "stylelint --fix src/sass/",
+    "test:scss": "stylelint --custom-syntax postcss-scss \"src/sass/**/*.{scss,css}\" --fix",
     "build": "npm-run-all build:clean build:copy build:css build:js test",
     "build:clean": "rimraf dist && mkdirp dist",
     "build:copy": "copyfiles -a -u 1 -e \"**/sass\" \"src/**/*\" dist",
@@ -24,7 +24,6 @@
     "dev": "npm-run-all --parallel serve:api watch"
   },
   "devDependencies": {
-    "json-server": "^0.17.3",
     "browser-sync": "^3.0.4",
     "copyfiles": "^2.4.1",
     "del": "^8.0.0",
@@ -34,9 +33,11 @@
     "gulp-copy": "^5.0.0",
     "gulp-sass": "^6.0.1",
     "html-validate": "^7.18.0",
+    "json-server": "^0.17.3",
     "mkdirp": "^3.0.1",
     "npm-run-all": "^4.1.5",
     "onchange": "^7.1.0",
+    "postcss-scss": "^4.0.9",
     "rimraf": "^5.0.1",
     "sass": "^1.89.2",
     "stylelint": "^15.11.0",

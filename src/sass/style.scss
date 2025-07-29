@@ -1,129 +1,26 @@
+// src/sass/style.scss
+
+// 1) zmienne i mixiny
+@import 'variables';
+
+// 2) poszczególne sekcje (partial’e)
 @import 'pages/home';
+@import 'pages/products';
+@import 'pages/about';
+@import 'pages/contact';
 
-
-
-
-
+// 3) ewentualne globalne style
 body {
-  font-family: sans-serif;
+  margin: 0; padding: 0;
+  font-family: $font-body;
+  background: #f5f5f5;
 }
 
-.hero {
-  background-color: #f5f5f5;
-  text-align: center;
-  padding: 60px 20px;
+// ewentualne globalne style (np. body, a, .btn)
 
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-  }
-
-  p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-  }
-
-  .btn {
-    display: inline-block;
-    background-color: #8b4513;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 4px;
-  }
-}
-
-.about {
-  display: flex;
-  align-items: center;
-  padding: 60px 20px;
-  gap: 40px;
-
-  img {
-    width: 300px;
-    max-width: 100%;
-  }
-
-  .about-text {
-    max-width: 600px;
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-  }
-}#products {
-  padding: 60px 20px;
-  background-color: #f5f5f5;
-
-  h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-  }
-}
-
-.product-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-}
-
-.product {
-  width: 300px;
-  background-color: white;
-  padding: 20px;
-  text-align: center;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: relative;
-
-  img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-    border-radius: 4px;
-  }
-
-  .badge {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: #ff6600;
-    color: white;
-    padding: 4px 8px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    border-radius: 4px;
-  }
-
-  h3 {
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-  }
-
-  .desc {
-    font-size: 1rem;
-    margin-bottom: 10px;
-    color: #444;
-  }
-
-  .meta {
-    font-size: 0.9rem;
-    color: #555;
-    margin-bottom: 10px;
-  }
-
-  .price {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: #8b4513;
-  }
-}
+.main-nav ul { list-style:none; display:flex; gap:1rem; padding:1rem; background:#fff; margin:0; }
+.main-nav a { text-decoration:none; color:#333; }
+.main-nav a.active { font-weight:bold; }
+.page { display:none; padding:2rem; }
+.page.active { display:block; }
+.btn { display:inline-block; padding:.5rem 1rem; background:#e67e22; color:#fff; text-decoration:none; border-radius:4px; }

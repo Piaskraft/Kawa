@@ -2,87 +2,96 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>Kawa</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" >
 </head>
 
 <body>
-
     <nav class="main-nav">
         <ul>
-            <li><a href="#home">Home</a></li>
+            <li><a href="#home" class="active">Home</a></li>
             <li><a href="#products">Products</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <main>
-        <!-- STRONA GŁÓWNA -->
-        <section id="home" class="page">
-            <section class="hero">
-                <h1>Welcome to Venezuela Coffee</h1>
-                <p>The finest beans from South America</p>
-                <a href="#products" class="btn">Shop Now</a>
-            </section>
-
-            <section class="about">
-                <img src="images/kawa1.jpg" alt="kawa1.jpg" >
-                <div class="about-text">
-                    <h2>Our Story</h2>
-                    <p>We roast coffee using traditional methods passed down through generations...</p>
-                </div>
-            </section>
+        <!-- HOME / HERO -->
+        <section id="home" class="page hero">
+            <img src="images/hero-coffee.jpg" alt="Coffee beans" class="hero__bg" >
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
+                <h2 class="hero__title">HOME OF<br>ORIGINAL TASTES</h2>
+                <a href="#products" class="hero__cta">DISCOVER</a>
+                <span class="hero__scroll">&#x25BC;</span>
+            </div>
         </section>
 
-        <!-- PRODUKTY -->
-        <section id="products" class="page">
-            <h2>Our Products</h2>
-            <div class="product-list"></div>
+        <!-- PRODUCTS -->
+        <section id="products" class="page products">
+            <h2 class="section-title">PRODUCTS</h2>
+            <div class="products__grid">
+                <!-- Handlebars wygeneruje tu .product-card -->
+            </div>
         </section>
 
-        <!-- KONTAKT -->
-        <section id="contact" class="page">
-            <h2>Contact Us</h2>
-            <form>
+        <!-- ABOUT US (opcjonalnie) -->
+        <section id="about" class="page about">
+            <h2 class="section-title">ABOUT US</h2>
+            <p class="about__text">
+                Who are we? Just a bunch of friends with a love for a good coffee and desire to create something new,
+                something original.<br><br>
+                Our coffees reflect us – young, wild and free. We are on the journey of new tastes…<br><br>
+                Join us!
+            </p>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="page contact">
+            <h2 class="section-title">CONTACT US</h2>
+            <form id="contact-form" class="contact__form">
                 <label>
-                    Name:
+                    <span>Name</span>
                     <input type="text" name="name" required >
                 </label>
                 <label>
-                    Email:
-                    <input type="email" name="email" required >
+                    <span>Title</span>
+                    <input type="text" name="title" required >
                 </label>
                 <label>
-                    Message:
-                    <textarea name="message" required></textarea>
+                    <span>Message</span>
+                    <textarea name="message" rows="5" required></textarea>
                 </label>
-                <button type="submit">Send</button>
+                <button type="submit" class="btn btn--gold">SUBMIT</button>
             </form>
         </section>
     </main>
-<script id="template-product" type="text/x-handlebars-template">
-  <div class="product">
-    <img src="{{image}}" alt="{{name}}">
-    {{#if badge}}
-      <span class="badge">{{badge}}</span>
-    {{/if}}
-    <h3>{{name}}</h3>
-    <p class="desc">{{description}}</p>
-    <p class="meta">
-      Roasting: {{roasting}} / 10<br>
-      Intensity: {{intensity}} / 10
-    </p>
-    <p class="price">{{price}} €</p>
-  </div>
-</script>
 
-<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <!-- Szablon Handlebars -->
+    <script id="template-product" type="text/x-handlebars-template">
+    <div class="product-card">
+      {{#if badge}}<span class="badge">{{badge}}</span>{{/if}}
+      <img src="{{image}}" alt="{{name}}" >
+      <h3>{{name}}</h3>
+      <p>{{description}}</p>
+      <p class="stats">
+        <span>Roasting: {{roasting}}/10</span><br>
+        <span>Intensity: {{intensity}}/10</span>
+      </p>
+      <p class="price">{{price}} zł</p>
+    </div>
+  </script>
 
-
-
+    <!-- Skrypty -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
     <script src="js/script.js"></script>
+
+    <!-- Stopka -->
+    <footer class="site-footer">
+        <p>© 2021 EL TIGRE inc.</p>
+    </footer>
 </body>
 
 </html>
