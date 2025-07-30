@@ -3,7 +3,8 @@
     {
       "id": 1,
       "name": "La Lagartija",
-      "price": 25,
+      "oldPrice": 29.99,
+      "newPrice": 25.00,
       "image": "/images/kawa1.jpg",
       "description": "Mysterious and treacherous... the best choice for the start of your journey! It will provide a rich delicious flavor.",
       "roasting": 5,
@@ -13,7 +14,8 @@
     {
       "id": 2,
       "name": "El Tigre",
-      "price": 20,
+      "oldPrice": 24.99,
+      "newPrice": 20.00,
       "image": "/images/kawa2.jpg",
       "description": "Heavily dark coffee, only for the real gourmets. It has bitter flavor of grapefruit and is mixed with a little bit of peanuts with caramel.",
       "roasting": 8,
@@ -23,7 +25,8 @@
     {
       "id": 3,
       "name": "La Cucaracha",
-      "price": 18,
+      "oldPrice": 21.99,
+      "newPrice": 18.00,
       "image": "/images/coffee-3.png",
       "description": "Balanced and sweet blend, ideal for lazy Sunday mornings. A classic taste with a slight twist.",
       "roasting": 4,

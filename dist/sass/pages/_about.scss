@@ -9,34 +9,36 @@
   padding: variables.$space * 6 variables.$space * 2;
   color: variables.$color-white;
 
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: variables.$color-overlay;
-    z-index: 1;
-  }
 
-  // Sekcja tytułu
-  .section-title {
-    position: relative;
-    z-index: 2;
-    color: variables.$color-gold;
-    font-family: variables.$font-heading;
-    font-size: variables.$fs-lg;
-    margin-bottom: variables.$space * 2;
-    text-transform: uppercase;
-  }
 
-  // Tekst opisowy
-  &__text {
-    position: relative;
-    z-index: 2;
-    max-width: 600px;
-    margin: variables.$space * 2 auto;
-    font-style: italic;
-    line-height: variables.$lh-normal;
-    color: variables.$color-white;
-    font-size: variables.$fs-md;
-  }
+&::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: variables.$color-overlay;
+  z-index: 1;
+}
+
+// Sekcja tytułu
+.section-title {
+  position: relative;
+  z-index: 2;
+  color: variables.$color-gold;
+  font-family: variables.$font-heading;
+  font-size: variables.$fs-lg;
+  margin-bottom: variables.$space * 2;
+  text-transform: uppercase;
+}
+
+// Tekst opisowy
+&__text {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: variables.$space * 2 auto;
+  font-style: italic;
+  line-height: variables.$lh-normal;
+  color: variables.$color-white;
+  font-size: variables.$fs-md;
+}
 }

@@ -82,3 +82,12 @@ body {
 .page.active {
   display: block;
 }
+.old-price {
+  text-decoration: line-through;
+  color: gray;
+  margin-right: 10px;
+}
+.new-price {
+  font-weight: bold;
+  color: darkgreen;
+}

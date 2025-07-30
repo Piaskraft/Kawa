@@ -7,6 +7,11 @@
     <title>El Tigre Coffee</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flickity@2/dist/flickity.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+
 </head>
 
 <body>
@@ -35,27 +40,43 @@
             <img src="images/hero-coffee.jpg" alt="Coffee beans" class="hero__bg">
             <div class="hero__overlay"></div>
             <div class="hero__content">
-                <h2 class="hero__title">HOME OF<br>ORIGINAL TASTES</h2>
+                <h1 id="random-header" class="hero__title"> Welcome to El Tigre Coffee</h1>
                 <a href="#products" class="hero__cta">DISCOVER</a>
                 <span class="hero__scroll">&#x25BC;</span>
             </div>
         </section>
 
         <!-- PRODUCTS -->
+
         <section id="products" class="page products">
             <h2 class="section-title products__title">PRODUCTS</h2>
             <div class="products__grid"></div>
         </section>
 
+
+
         <!-- ABOUT -->
         <section id="about" class="page about">
             <h2 class="section-title about__title">ABOUT US</h2>
-            <p class="about__text">
-                Who are we? Just a bunch of friends with a love for a good coffee and desire to
-                create something new, something original.
-                Our coffees reflect us – young, wild and free. We are on the journey of new tastes…
-            </p>
+            <div class="carousel">
+                <div class="carousel-cell">
+                    <img src="images/person1.jpg" alt="Jan Kowalski">
+                    <h3>Jan Kowalski</h3>
+                    <p>Opis pracownika nr 1.</p>
+                </div>
+                <div class="carousel-cell">
+                    <img src="images/person2.jpg" alt="Anna Nowak">
+                    <h3>Anna Nowak</h3>
+                    <p>Opis pracownika nr 2.</p>
+                </div>
+                <div class="carousel-cell">
+                    <img src="images/person3.jpg" alt="Piotr Wiśniewski">
+                    <h3>Piotr Wiśniewski</h3>
+                    <p>Opis pracownika nr 3.</p>
+                </div>
+            </div>
         </section>
+
 
         <!-- CONTACT -->
         <section id="contact" class="page contact">
@@ -78,26 +99,49 @@
         </section>
     </main>
 
+
     <!-- Szablon Handlebars -->
     <script id="template-product" type="text/x-handlebars-template">
-    <div class="product-card">
-      {{#if badge}}<span class="badge">{{badge}}</span>{{/if}}
-      <img src="{{image}}" alt="{{name}}" >
-      <h3>{{name}}</h3>
-      <p>{{description}}</p>
-      <p class="stats">
-        <span>Roasting: {{roasting}}/10</span><br >
-        <span>Intensity: {{intensity}}/10</span>
-      </p>
-      <p class="price">{{price}} zł</p>
-    </div>
-  </script>
+  <div class="product-card">
+    {{#if badge}}<span class="badge">{{badge}}</span>{{/if}}
+   <img src="{{image}}" alt="{{name}}">
+    <h3>{{name}}</h3>
+    <p>{{description}}</p>
+    <p class="stats">
+      <span>Roasting: {{roasting}}/10</span>
+      <span>Intensity: {{intensity}}/10</span>
+    </p>
+    <p class="price">
+      <span class="old-price">{{oldPrice}} zł</span>
+      <span class="new-price">{{newPrice}} zł</span>
+    </p>
+  </div>
+</script>
+
+
 
     <!-- Skrypty -->
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const elem = document.querySelector('.carousel');
+            if (elem) {
+                new Flickity(elem, {
+                    autoPlay: 5000,
+                    prevNextButtons: false,
+                    pageDots: false,
+                    wrapAround: true
+                });
+            }
+        });
+    </script>
+
+
+
+
+
     <script type="module" src="js/script.js"></script>
-
-
     <!-- stopka -->
     <footer class="site-footer">
         <p>© 2021 EL TIGRE inc.</p>
