@@ -1,67 +1,87 @@
 // src/sass/pages/_products.scss
+
+@use '../variables' as variables;
+
 .products {
-  padding:4rem 2rem; background:$color-white;
+  padding: 4rem 2rem;
+  background: variables.$color-white;
+
   &__grid {
-    display:grid;
+    display: grid;
+    // dopasuj auto-fit / auto-fill wedle preferencji
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap:3rem;
+    gap: variables.$space * 2;
   }
-}
 
-.product-card {
-  background:$color-white; box-shadow:0 2px 6px rgba(0,0,0,0.1);
-  border-radius:8px; overflow:hidden; display:flex; align-items:center;
-  &.odd { flex-direction: row-reverse; }
-  img { width:50%; object-fit:cover; }
-  h3 {
-    font-family:$font-heading; margin:1rem;
-  }
-  .badge {
-    display:inline-block; background:$color-gold; color:$color-white;
-    padding:.25rem .5rem; position:absolute; top:1rem; left:1rem;
-  }
-  .stats {
-    margin: 1rem; font-size:.9rem;
-    .label { font-weight:bold; }
-  }
-  .price {
-    margin:1rem; font-weight:bold; color:$color-dark;
-  }
-}
+  &__grid .product-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "img content";
+    align-items: start;
+    background: variables.$color-white;
+    box-shadow: variables.$shadow-md;
+    border-radius: variables.$radius-md;
+    overflow: hidden;
+    padding: variables.$space * 1.5;
+    position: relative;
 
+    // co druga karta: odwróć kolejność
+    &:nth-child(even) {
+      grid-template-areas:
+        "content img";
+    }
 
-#products {
-  background: #f0f0f0;
-}
-.product-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 1rem;
-}
-.product-card {
-  background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  padding: 1rem;
-  text-align: center;
-}
-.product-card img {
-  max-width: 100%;
-  height: auto;
-}
-.product-card .badge {
-  display: inline-block;
-  background: #e74c3c;
-  color: #fff;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  position: relative;
-  top: -0.5rem;
-}
-.price {
-  font-weight: bold;
-  margin-top: 0.5rem;
+    // obrazek zawsze w grid-area img
+    img {
+      grid-area: img;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: variables.$radius-sm;
+    }
+
+    // treść w grid-area content
+    .badge,
+    h3,
+    p,
+    .stats,
+    .price {
+      grid-area: content;
+    }
+
+    // szczegóły treści
+    .badge {
+      display: inline-block;
+      background: variables.$color-gold;
+      color: variables.$color-white;
+      padding: 0.25rem 0.5rem;
+      border-radius: variables.$radius-sm;
+      font-size: 0.8rem;
+      margin-bottom: variables.$space;
+    }
+
+    h3 {
+      font-family: variables.$font-heading;
+      margin: 0 0 variables.$space;
+    }
+
+    p {
+      margin: 0 0 variables.$space;
+      line-height: variables.$lh-normal;
+    }
+
+    .stats {
+      margin: 0 0 variables.$space;
+      font-size: 0.9rem;
+
+      .label {
+        font-weight: bold;
+      }
+    }
+
+    .price {
+      font-weight: bold;
+    }
+  }
 }

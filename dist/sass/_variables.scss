@@ -1,8 +1,75 @@
 // src/sass/_variables.scss
 
-$color-dark:   #0a0a0a;
-$color-white:  #ffffff;
-$color-gold:   #be9b7b;
+// --------------------------------------------------
+//  Typography
+// --------------------------------------------------
+$font-body:      'Source Sans Pro', sans-serif;
+$font-heading:   'Montserrat', sans-serif;
 
-$font-heading: 'Montserrat', sans-serif;
-$font-body:    'Open Sans', sans-serif;
+// Base font sizes (mobile first)
+$fs-sm:  0.875rem;  // small text
+$fs-md:  1rem;      // body text
+$fs-lg:  1.25rem;   // section titles
+$fs-xl:  1.8rem;    // hero title
+$fs-xxl: 2.5rem;    // large headings
+
+// Line-heights
+$lh-tight: 1.2;
+$lh-normal: 1.5;
+
+
+// --------------------------------------------------
+//  Color palette
+// --------------------------------------------------
+$color-white:       #ffffff;
+$color-black:       #000000;
+$color-light:       #f5f5f5;   // background for pages
+$color-grey:        #e0e0e0;   // borders, dividers
+$color-dark:        #333333;   // text on light bg
+$color-gold:        #c8a165;   // primary accent (buttons, highlights)
+$color-overlay:     rgba(0, 0, 0, 0.5); // hero overlay
+
+// Semantic colors
+$color-success:     #27ae60;
+$color-warning:     #f39c12;
+$color-error:       #e74c3c;
+
+
+// --------------------------------------------------
+//  Spacing & Breakpoints
+// --------------------------------------------------
+// Base spacing unit
+$space: 1rem;
+
+// Common breakpoints
+$bp-sm:  576px;  // small devices
+$bp-md:  768px;  // tablets
+$bp-lg:  992px;  // desktops
+$bp-xl: 1200px;  // large screens
+
+
+// --------------------------------------------------
+//  Border & Shadow
+// --------------------------------------------------
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 16px;
+
+$shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+$shadow-md: 0 2px 6px rgba(0,0,0,0.15);
+$shadow-lg: 0 4px 12px rgba(0,0,0,0.2);
+
+
+// --------------------------------------------------
+//  Z-index layers
+// --------------------------------------------------
+$z-header:    1000;
+$z-overlay:   900;
+$z-dropdown:  800;
+
+
+// --------------------------------------------------
+//  Transitions
+// --------------------------------------------------
+$trans-duration: 0.3s;
+$trans-ease: cubic-bezier(0.4, 0, 0.2, 1);

@@ -1,0 +1,11 @@
+// src/sass/vendor/_bootstrap.scss
+
+// Import Normalize (reset browser styles)
+@use 'normalize' as *;
+
+// Import Bootstrap Grid-only modules and mixins
+@use './bootstrap/functions';
+@use './bootstrap/variables';
+@use './bootstrap/mixins';
+@use './bootstrap/utilities';
+@use './bootstrap/grid';

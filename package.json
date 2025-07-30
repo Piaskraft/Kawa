@@ -18,8 +18,7 @@
     "build:clean": "rimraf dist && mkdirp dist",
     "build:copy": "copyfiles -a -u 1 -e \"**/sass\" \"src/**/*\" dist",
     "build:css": "sass src/sass/style.scss dist/css/style.css --no-source-map",
-    "build:js": "uglifyjs \"src/js/*.js\" -o \"dist/js/script.js\"",
-    "serve": "browser-sync start --server dist --files \"dist\"",
+    "build:js": "copyfiles -u 1 src/js/*.js dist",
     "serve:api": "json-server --watch db/db.json --port 3131",
     "dev": "npm-run-all --parallel serve:api watch"
   },
@@ -42,5 +41,8 @@
     "sass": "^1.89.2",
     "stylelint": "^15.11.0",
     "uglify-js": "^3.17.4"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.7"
   }
 }

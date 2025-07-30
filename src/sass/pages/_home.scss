@@ -1,58 +1,108 @@
+// src/sass/pages/_home.scss
+
+@use '../variables' as variables;
 
 .hero {
-  position: relative; height: 100vh; overflow: hidden;
-  &__bg { position: absolute; inset: 0; object-fit: cover; z-index: 1; }
-  &__overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); z-index:2; }
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+  }
+
   &__content {
-    position: relative; z-index:3;
-    display:flex; align-items:center; justify-content:center;
-    height:100%; flex-direction:column; color:$color-gold;
-    text-align:center;
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    color: variables.$color-gold;
+    text-align: center;
+    padding: variables.$space; // mały odstęp, gdy content jest w mobile
   }
+
   &__title {
-    font-family:$font-heading; font-size:3rem; text-transform:uppercase;
+    font-family: variables.$font-heading;
+    font-size: variables.$fs-xxl;
+    text-transform: uppercase;
+    line-height: variables.$lh-tight;
   }
+
   &__cta {
-    margin:2rem 0; padding:.5rem 1.5rem; border:2px solid $color-white;
-    color:$color-white; text-decoration:none;
+    margin: variables.$space * 2 0;
+    padding: variables.$space  variables.$space * 1.5;
+    border: 2px solid variables.$color-white;
+    color: variables.$color-white;
+    text-decoration: none;
+    border-radius: variables.$radius-sm;
+    transition: all variables.$trans-duration variables.$trans-ease;
+
+    &:hover {
+      background: variables.$color-white;
+      color: variables.$color-dark;
+    }
   }
+
   &__scroll {
-    font-size:2rem; color:$color-white; animation:bounce 2s infinite;
+    font-size: 2rem;
+    color: variables.$color-white;
+    margin-top: auto;
+    animation: bounce 2s infinite;
   }
 }
 
+// animacja bounce
 @keyframes bounce {
-  0%,100% { transform: translateY(0); }
-  50%    { transform: translateY(10px); }
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
 }
 
 
+// Opcjonalna sekcja #home pod hero — jeśli używasz, scal tutaj
 #home {
   text-align: center;
-  background: #e0f7fa;
-}
-#home img {
-  max-width: 100%;
-  height: auto;
-  margin-top: 1rem;
-}
+  background: variables.$color-grey;
+  padding-bottom: variables.$space * 4;
 
-
-#home {
-  text-align: center;
-  background: #e0f7fa;
-  padding-bottom: 4rem;
+  img {
+    max-width: 100%;
+    height: auto;
+    margin-top: variables.$space;
+  }
 
   .story {
-    margin-top: 3rem;
+    margin-top: variables.$space * 3;
+
     h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+      font-size: variables.$fs-xl;
+      margin-bottom: variables.$space;
+      color: variables.$color-dark;
     }
+
     p {
       max-width: 600px;
       margin: 0 auto;
-      line-height: 1.6;
+      line-height: variables.$lh-normal;
+      color: variables.$color-dark;
     }
   }
 }

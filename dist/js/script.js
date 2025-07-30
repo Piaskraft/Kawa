@@ -1,1 +1,90 @@
-document.addEventListener("DOMContentLoaded",function(){var pages=document.querySelectorAll(".page");var navLinks=document.querySelectorAll(".main-nav a");var productGrid=document.querySelector(".products__grid");var templateSource=document.querySelector("#template-product").innerHTML;var productTemplate=Handlebars.compile(templateSource);function activatePage(id){pages.forEach(function(page){page.classList.toggle("active",page.id===id)});navLinks.forEach(function(link){link.classList.toggle("active",link.getAttribute("href")==="#"+id)});if(id==="products"){productGrid.innerHTML="";fetch("http://localhost:3131/products").then(function(res){return res.json()}).then(function(data){console.log("Otrzymane data:",data);data.forEach(function(product,index){var html=productTemplate(product);var wrapper=document.createElement("div");wrapper.innerHTML=html;var card=wrapper.firstElementChild;if(index%2===1){card.classList.add("odd")}productGrid.appendChild(card)})}).catch(function(err){console.error("Błąd podczas pobierania produktów:",err)})}}var startPage=window.location.hash.replace("#","")||"home";activatePage(startPage);navLinks.forEach(function(link){link.addEventListener("click",function(e){e.preventDefault();var targetId=link.getAttribute("href").replace("#","");activatePage(targetId);window.location.hash="#"+targetId})})});
+import { settings } from './settings.js';
+
+const app = {
+  data: {},
+
+  init: function () {
+    this.initPages();
+    this.initData();
+  },
+
+  initPages: function () {
+    const thisApp = this;
+
+    thisApp.pages = document.querySelectorAll(settings.selectors.pages);
+    thisApp.navLinks = document.querySelectorAll(settings.selectors.navLinks);
+
+    // aktywuj od razu tę stronę, którą wyczytasz z hash lub pierwszą
+    const initialId = window.location.hash.replace('#', '') || thisApp.pages[0].id;
+    thisApp.activatePage(initialId);
+
+    // jeśli to products, to wyrenderuj produkty teraz
+    if (initialId === 'products') {
+      thisApp.renderProducts();
+    }
+
+    for (let link of thisApp.navLinks) {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        const id = this.getAttribute('href').replace('#', '');
+
+        thisApp.activatePage(id);
+        window.location.hash = '#' + id;
+
+        // wywołaj renderProducts tylko gdy przełączyliśmy się na Products
+        if (id === 'products') {
+          thisApp.renderProducts();
+        }
+      });
+    }
+  },
+
+  activatePage: function (pageId) {
+    for (let page of this.pages) {
+      page.classList.toggle('active', page.id === pageId);
+    }
+    for (let link of this.navLinks) {
+      link.classList.toggle(
+        'active',
+        link.getAttribute('href') === '#' + pageId
+      );
+    }
+  },
+
+  initData: function () {
+    const thisApp = this;
+    const url = `${settings.db.url}/${settings.db.products}`;
+
+    fetch(url)
+      .then((res) => res.json())
+      .then((products) => {
+        thisApp.data.products = products;
+        // UWAGA: nie wywołujemy tu renderProducts(), bo kontener może nie istnieć
+      });
+  },
+
+  renderProducts: function () {
+    const thisApp = this;
+    const container = document.querySelector(settings.selectors.productList);
+
+    if (!container) {
+      console.warn('Brak kontenera products__grid – pomijam renderProducts');
+      return;
+    }
+
+    container.innerHTML = ''; // wyczyść poprzednie
+
+    for (let product of thisApp.data.products) {
+      const html = `
+        <div class="product">
+          <h3>${product.title}</h3>
+          <p>${product.description}</p>
+          <img src="${product.image}" alt="${product.title}" />
+        </div>
+      `;
+      container.innerHTML += html;
+    }
+  },
+};
+
+app.init();

@@ -1,13 +1,42 @@
+// src/sass/pages/_about.scss
+
+@use '../variables' as variables;
+
 .about {
-  position:relative; color:$color-white; text-align:center;
+  position: relative;
+  text-align: center;
   background: url('../images/about-us.jpg') center/cover no-repeat;
-  padding:6rem 2rem;
+  padding: variables.$space * 6 variables.$space * 2;
+  color: variables.$color-white;
+
   &::before {
-    content:''; position:absolute; inset:0; background:rgba(0,0,0,0.5);
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: variables.$color-overlay;
+    z-index: 1;
   }
-  .section-title { color:$color-gold; position:relative; z-index:2; }
+
+  // Sekcja tytułu
+  .section-title {
+    position: relative;
+    z-index: 2;
+    color: variables.$color-gold;
+    font-family: variables.$font-heading;
+    font-size: variables.$fs-lg;
+    margin-bottom: variables.$space * 2;
+    text-transform: uppercase;
+  }
+
+  // Tekst opisowy
   &__text {
-    position:relative; z-index:2;
-    max-width:600px; margin:2rem auto; font-style:italic; line-height:1.6;
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: variables.$space * 2 auto;
+    font-style: italic;
+    line-height: variables.$lh-normal;
+    color: variables.$color-white;
+    font-size: variables.$fs-md;
   }
 }
