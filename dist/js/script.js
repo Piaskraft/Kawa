@@ -9,8 +9,10 @@ const app = {
     this.initPages();
     this.setRandomHeader();
     this.initData();
+    this.initContactForm();
+
   },
-   setRandomHeader: function () {
+  setRandomHeader: function () {
     const texts = settings.headerTexts;
     const randomText = texts[Math.floor(Math.random() * texts.length)];
     const el = document.getElementById('random-header');
@@ -80,8 +82,31 @@ const app = {
       const html = template(product);
       container.innerHTML += html;
     }
-  }  // <-- tutaj nie ma przecinka!
-};  // <-- zamyka obiekt `app`
+  },
+
+  initContactForm: function () {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const name = form.querySelector('input[name="name"]').value;
+      const title = form.querySelector('input[name="title"]').value;
+      const message = form.querySelector('textarea[name="message"]').value;
+
+      console.log('📨 Form submitted:');
+      console.log('Name:', name);
+      console.log('Title:', title);
+      console.log('Message:', message);
+
+      // Ewentualnie: form.reset(); // jeśli chcesz wyczyścić po wysłaniu
+    });
+  },
+
+
+
+};
 
 // A dopiero po obiekcie wywołujemy metodę init:
 app.init();
