@@ -2,6 +2,7 @@
   "name": "kawa-project",
   "version": "1.0.0",
   "description": "Projekt strony kawiarni - Kodilla",
+   "type": "module", 
   "scripts": {
     "init-project": "gulp init",
     "watch": "npm-run-all --parallel watch:scss watch:js watch:html watch:images watch:serve",
@@ -43,6 +44,7 @@
     "uglify-js": "^3.17.4"
   },
   "dependencies": {
-    "bootstrap": "^5.3.7"
+    "bootstrap": "^5.3.7",
+    "handlebars": "^4.7.8"
   }
 }

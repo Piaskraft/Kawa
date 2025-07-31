@@ -1,44 +1,51 @@
-// src/sass/pages/_about.scss
-
 @use '../variables' as variables;
 
 .about {
   position: relative;
   text-align: center;
   background: url('../images/about-us.jpg') center/cover no-repeat;
-  padding: variables.$space * 6 variables.$space * 2;
+
+  // Poprawione wyliczenie paddingu: najpierw obliczamy wartości, potem wstawiamy jako ciąg
+  padding: #{variables.$space * 6} #{variables.$space * 2};
   color: variables.$color-white;
+  
 
+  // Wyłączona ciemna nakładka (overlay)
+  &::before {
+    // Nie generujemy pseudo-elementu
+    content: none !important;
+  }
 
+  // Sekcja tytułu
+  .section-title {
+    position: relative;
+    z-index: 2;
+    color: variables.$color-gold;
+    font-family: variables.$font-heading;
+    font-size: variables.$fs-lg;
+    margin-bottom: #{variables.$space * 2};
+    text-transform: uppercase;
+  }
 
-&::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: variables.$color-overlay;
-  z-index: 1;
-}
-
-// Sekcja tytułu
-.section-title {
-  position: relative;
-  z-index: 2;
-  color: variables.$color-gold;
-  font-family: variables.$font-heading;
-  font-size: variables.$fs-lg;
-  margin-bottom: variables.$space * 2;
-  text-transform: uppercase;
-}
-
-// Tekst opisowy
-&__text {
-  position: relative;
-  z-index: 2;
-  max-width: 600px;
-  margin: variables.$space * 2 auto;
-  font-style: italic;
-  line-height: variables.$lh-normal;
-  color: variables.$color-white;
-  font-size: variables.$fs-md;
-}
+  // Tekst opisowy
+  &__text {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: #{variables.$space * 2} auto;
+    font-style: italic;
+    line-height: variables.$lh-normal;
+    color: variables.$color-white;
+    font-size: variables.$fs-md;
+  }
+    &__banner {
+    position: relative;
+    margin: variables.$space * 4 0;  // odstęp nad i pod bannerem
+    img {
+      display: block;
+      width: 100%;      // banner zajmie całą szerokość kontenera
+      height: auto;     // proporcje zostaną zachowane
+      border-radius: 8px; // zaokrąglenie rogów, jeśli chcesz
+    }
+  }
 }

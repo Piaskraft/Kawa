@@ -19,27 +19,8 @@ body {
   overflow-x: hidden;
 }
 
-.main-nav {
-  background: variables.$color-white;
 
-  ul {
-    list-style: none;
-    display: flex;
-    gap: variables.$space;
-    padding: variables.$space;
-    margin: 0;
-    flex-wrap: wrap;
-  }
 
-  a {
-    text-decoration: none;
-    color: variables.$color-dark;
-
-    &.active {
-      font-weight: bold;
-    }
-  }
-}
 
 .btn {
   display: inline-block;
@@ -69,25 +50,107 @@ body {
   }
 }
 
-.site-header {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 1rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+
+
+
 .page {
   display: none;
 }
+
 .page.active {
   display: block;
 }
+
 .old-price {
   text-decoration: line-through;
   color: gray;
   margin-right: 10px;
 }
+
 .new-price {
   font-weight: bold;
   color: darkgreen;
+}
+
+.site-header {
+  background: rgba(0, 0, 0, 0.899);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .logo-wrapper {
+    display: flex;
+    align-items: center;
+
+    .logo {
+      max-width: 120px;
+      height: auto;
+    }
+  }
+
+  .main-nav {
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+
+      li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+
+        &.active {
+          border-bottom: 2px solid variables.$color-gold;
+        }
+
+        &:hover {
+          color: variables.$color-gold;
+        }
+      }
+    }
+  }
+}
+
+.hero-section {
+  margin-top: 0;
+  padding-top: 0;
+  background: url('./images/hero-coffee.jpg') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 10rem 2rem; // od góry i dołu
+}
+
+.carousel {
+  background: variables.$color-light;
+  margin-top: 2rem;
+
+  .carousel-cell {
+    width: 300px;
+    margin-right: 1rem;
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #444;
+    }
+  }
 }
