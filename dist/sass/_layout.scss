@@ -1,0 +1,25 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+
+  & > * {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+// Reużywalne klasy grid
+.u-full-width {
+  width: 100%;
+}

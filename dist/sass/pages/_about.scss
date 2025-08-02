@@ -3,12 +3,11 @@
 .about {
   position: relative;
   text-align: center;
-  background: url('../images/about-us.jpg') center/cover no-repeat;
 
   // Poprawione wyliczenie paddingu: najpierw obliczamy wartości, potem wstawiamy jako ciąg
   padding: #{variables.$space * 6} #{variables.$space * 2};
   color: variables.$color-white;
-  
+
 
   // Wyłączona ciemna nakładka (overlay)
   &::before {
@@ -38,13 +37,15 @@
     color: variables.$color-white;
     font-size: variables.$fs-md;
   }
-    &__banner {
+
+  &__banner {
     position: relative;
-    margin: variables.$space * 4 0;  // odstęp nad i pod bannerem
+    margin: variables.$space * 4 0; // odstęp nad i pod bannerem
+
     img {
       display: block;
-      width: 100%;      // banner zajmie całą szerokość kontenera
-      height: auto;     // proporcje zostaną zachowane
+      width: 100%; // banner zajmie całą szerokość kontenera
+      height: auto; // proporcje zostaną zachowane
       border-radius: 8px; // zaokrąglenie rogów, jeśli chcesz
     }
   }

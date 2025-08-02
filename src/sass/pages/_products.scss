@@ -1,87 +1,88 @@
-// src/sass/pages/_products.scss
+@use '../variables' as vars;
 
-@use '../variables' as variables;
+// src/sass/_products.scss
 
-.products {
-  padding: 4rem 2rem;
-  background: variables.$color-white;
+// Kontener siatki produktów
+.products__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+  padding: 0;
+  list-style: none;
+}
 
-  &__grid {
-    display: grid;
-    // dopasuj auto-fit / auto-fill wedle preferencji
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: variables.$space * 2;
+// Pojedyncza karta produktu
+.product-card {
+  position: relative;
+  background: #fff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+
+  // Obrazek
+  &__img {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
-  &__grid .product-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "img content";
-    align-items: start;
-    background: variables.$color-white;
-    box-shadow: variables.$shadow-md;
-    border-radius: variables.$radius-md;
-    overflow: hidden;
-    padding: variables.$space * 1.5;
-    position: relative;
+  // Szczegóły (tytuł, opis, ceny)
+  &__details {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-    // co druga karta: odwróć kolejność
-    &:nth-child(even) {
-      grid-template-areas:
-        "content img";
-    }
+  &__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+  }
 
-    // obrazek zawsze w grid-area img
-    img {
-      grid-area: img;
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      border-radius: variables.$radius-sm;
-    }
+  &__description {
+    font-size: 0.9rem;
+    color: #555;
+    flex: 1;
+  }
 
-    // treść w grid-area content
-    .badge,
-    h3,
-    p,
-    .stats,
-    .price {
-      grid-area: content;
-    }
+  // Nowa i stara cena w rogach
+  &__price-new,
+  &__price-old {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 0.25rem;
+  }
+  &__price-new {
+    top: 0.5rem;
+    right: 0.5rem;
+    color: #008000; // zielony – można usunąć, by użyć domyślnego koloru
+  }
+  &__price-old {
+    bottom: 0.5rem;
+    left: 0.5rem;
+    text-decoration: line-through;
+    color: #888;
+  }
 
-    // szczegóły treści
-    .badge {
-      display: inline-block;
-      background: variables.$color-gold;
-      color: variables.$color-white;
-      padding: 0.25rem 0.5rem;
-      border-radius: variables.$radius-sm;
-      font-size: 0.8rem;
-      margin-bottom: variables.$space;
-    }
-
-    h3 {
-      font-family: variables.$font-heading;
-      margin: 0 0 variables.$space;
-    }
-
-    p {
-      margin: 0 0 variables.$space;
-      line-height: variables.$lh-normal;
-    }
-
-    .stats {
-      margin: 0 0 variables.$space;
-      font-size: 0.9rem;
-
-      .label {
-        font-weight: bold;
-      }
-    }
-
-    .price {
-      font-weight: bold;
-    }
+  // Opcjonalny badge „Most Popular”
+  &__badge {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    background: rgba(255, 165, 0, 0.9);
+    color: #fff;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 0.25rem;
+    z-index: 2;
   }
 }

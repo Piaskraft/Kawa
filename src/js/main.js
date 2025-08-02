@@ -1,9 +1,14 @@
+
 /* global Handlebars */
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
-  const source    = document.getElementById('product-template').innerHTML;
-  const template  = Handlebars.compile(source);
-  const container = document.getElementById('products-container');
+  const source = document.getElementById('product-template').innerHTML;
+
+  const template = Handlebars.compile(source);
+const container = document.querySelector('.products__grid');
+
 
   fetch('http://localhost:3131/products')
     .then(res => res.json())

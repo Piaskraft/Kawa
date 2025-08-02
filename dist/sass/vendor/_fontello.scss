@@ -1,0 +1,70 @@
+// src/sass/_fontello.scss
+
+@font-face {
+  font-family: 'fontello';
+  /* IE9 Compat Modes */
+  src: url('../fonts/fontello.eot');
+  /* Modern Browsers */
+  src: url('../fonts/fontello.eot#iefix') format('embedded-opentype'),
+    url('../fonts/fontello.woff2') format('woff2'),
+    url('../fonts/fontello.woff') format('woff'),
+    url('../fonts/fontello.ttf') format('truetype'),
+    url('../fonts/fontello.svg#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Chrome hack: SVG is rendered more smooth in Windows. Uncomment if needed:
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../fonts/fontello.svg#fontello') format('svg');
+  }
+}
+*/
+
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: 'fontello' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  display: inline-block;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Przykładowe ikony – upewnij się, że odpowiadają twoim plikom fontello.json */
+.icon-heart:before {
+  content: '\e800';
+}
+
+.icon-search:before {
+  content: '\e801';
+}
+
+.icon-heart-1:before {
+  content: '\e802';
+}
+
+.icon-left-open:before {
+  content: '\e803';
+}
+
+.icon-right-open:before {
+  content: '\e804';
+}
+
+.icon-facebook:before {
+  content: '\f300';
+}
+
+.icon-twitter-bird:before {
+  content: '\f303';
+}

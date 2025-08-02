@@ -1,6 +1,6 @@
 /* global Handlebars */
 import { settings } from './settings.js';
-
+// w script.js
 
 const app = {
   data: {},
@@ -74,7 +74,8 @@ const app = {
     if (!container) return;
 
     // kompilacja Handlebars
-    const source = document.getElementById('template-product').innerHTML;
+    const source = document.getElementById('product-template').innerHTML;
+
     const template = Handlebars.compile(source);
 
     container.innerHTML = '';

@@ -1,19 +1,19 @@
-import Handlebars from 'handlebars';
+<div class="product-card">
+  {{#if mostPopular}}
+    <div class="product-card__badge">Most Popular</div>
+  {{/if}}
 
-<!-- szablon pojedynczego produktu -->
-<script id="product-template" type="text/x-handlebars-template">
-  <article class="product" data-id="{{id}}">
-    {{#if badge}}<span class="product__badge">{{badge}}</span>{{/if}}
-    <img src="{{image}}" alt="{{title}}" class="product__image">
-    <div class="product__info">
-      <h2 class="product__title">{{title}}</h2>
-      <p class="product__roasting">Palarnia: {{roasting}}</p>
-      <p class="product__description">{{description}}</p>
-      <p class="product__price">
-        <span class="product__old-price">{{oldPrice}} PLN</span>
-        <span class="product__new-price">{{newPrice}} PLN</span>
-      </p>
-      <p class="product__intensity">Intensywność: {{intensity}}</p>
-    </div>
-  </article>
-</script>
+  <img
+    src="{{imageUrl}}"
+    alt="{{title}}"
+    class="product-card__img"
+  />
+
+  <div class="product-card__details">
+    <h2 class="product-card__title">{{title}}</h2>
+    <p class="product-card__description">{{description}}</p>
+  </div>
+
+  <div class="product-card__price-new">{{priceCurrent}}€</div>
+  <div class="product-card__price-old">{{priceOld}}€</div>
+</div>

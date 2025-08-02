@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -307,6 +308,176 @@ template {
   display: none;
 }
 
+@font-face {
+  font-family: "fontello";
+  /* IE9 Compat Modes */
+  src: url("../fonts/fontello.eot");
+  /* Modern Browsers */
+  src: url("../fonts/fontello.eot#iefix") format("embedded-opentype"), url("../fonts/fontello.woff2") format("woff2"), url("../fonts/fontello.woff") format("woff"), url("../fonts/fontello.ttf") format("truetype"), url("../fonts/fontello.svg#fontello") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windows. Uncomment if needed:
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../fonts/fontello.svg#fontello') format('svg');
+  }
+}
+*/
+[class^=icon-],
+[class*=" icon-"] {
+  font-family: "fontello" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  display: inline-block;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Przykładowe ikony – upewnij się, że odpowiadają twoim plikom fontello.json */
+.icon-heart:before {
+  content: "\e800";
+}
+
+.icon-search:before {
+  content: "\e801";
+}
+
+.icon-heart-1:before {
+  content: "\e802";
+}
+
+.icon-left-open:before {
+  content: "\e803";
+}
+
+.icon-right-open:before {
+  content: "\e804";
+}
+
+.icon-facebook:before {
+  content: "\f300";
+}
+
+.icon-twitter-bird:before {
+  content: "\f303";
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Source Sans Pro", sans-serif, sans-serif;
+  line-height: 1.6;
+  color: #333333;
+  background-color: #f5f5f5;
+}
+
+a {
+  color: #c8a165;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+.row > * {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.u-full-width {
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #333333;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+p {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+}
+
+small {
+  font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+  .products__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .products__grid {
+    grid-template-columns: 1fr;
+  }
+  .site-nav {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+}
 .hero {
   position: relative;
   height: 100vh;
@@ -397,76 +568,81 @@ template {
   color: #333333;
 }
 
-.products {
-  padding: 4rem 2rem;
-  background: #ffffff;
-}
 .products__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+  padding: 0;
+  list-style: none;
 }
-.products__grid .product-card {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: "img content";
-  align-items: start;
-  background: #ffffff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  border-radius: 8px;
-  overflow: hidden;
-  padding: 1.5rem;
+
+.product-card {
   position: relative;
+  background: #fff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
-.products__grid .product-card:nth-child(even) {
-  grid-template-areas: "content img";
-}
-.products__grid .product-card img {
-  grid-area: img;
+.product-card__img {
+  display: block;
   width: 100%;
   height: auto;
-  object-fit: cover;
-  border-radius: 4px;
 }
-.products__grid .product-card .badge,
-.products__grid .product-card h3,
-.products__grid .product-card p,
-.products__grid .product-card .stats,
-.products__grid .product-card .price {
-  grid-area: content;
+.product-card__details {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.products__grid .product-card .badge {
-  display: inline-block;
-  background: #c8a165;
-  color: #ffffff;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  margin-bottom: 1rem;
+.product-card__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
 }
-.products__grid .product-card h3 {
-  font-family: "Montserrat", sans-serif;
-  margin: 0 0 1rem;
-}
-.products__grid .product-card p {
-  margin: 0 0 1rem;
-  line-height: 1.5;
-}
-.products__grid .product-card .stats {
-  margin: 0 0 1rem;
+.product-card__description {
   font-size: 0.9rem;
+  color: #555;
+  flex: 1;
 }
-.products__grid .product-card .stats .label {
-  font-weight: bold;
+.product-card__price-new, .product-card__price-old {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 0.25rem;
 }
-.products__grid .product-card .price {
-  font-weight: bold;
+.product-card__price-new {
+  top: 0.5rem;
+  right: 0.5rem;
+  color: #008000;
+}
+.product-card__price-old {
+  bottom: 0.5rem;
+  left: 0.5rem;
+  text-decoration: line-through;
+  color: #888;
+}
+.product-card__badge {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  background: rgba(255, 165, 0, 0.9);
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  z-index: 2;
 }
 
 .about {
   position: relative;
   text-align: center;
-  background: url("../images/about-us.jpg") center/cover no-repeat;
   padding: 6rem 2rem;
   color: #ffffff;
 }
@@ -564,6 +740,41 @@ template {
   background: #fff3e0;
 }
 
+@font-face {
+  font-family: "fontello";
+  src: url("../vendor/font/fontello.eot");
+  src: url("../vendor/font/fontello.eot?#iefix") format("embedded-opentype"), url("../vendor/font/fontello.woff2") format("woff2"), url("../vendor/font/fontello.woff") format("woff"), url("../vendor/font/fontello.ttf") format("truetype"), url("../vendor/font/fontello.svg#fontello") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+[class^=icon-],
+[class*=" icon-"] {
+  display: inline-block;
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 768px) {
+  .products__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .products__grid {
+    grid-template-columns: 1fr;
+  }
+  .site-nav {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+}
 body {
   margin: 0;
   padding: 0;

@@ -1,14 +1,46 @@
+
 // src/sass/style.scss
 
-// 1) Reset (Normalize)
-@use 'vendor/normalize';
-
-// 2) Variables and partials
+// 1. Zmienne MUSZĄ być jako pierwsze
 @use 'variables';
+
+// 2. Normalize i Fontello (resety, ikony)
+@use 'vendor/normalize';
+@use 'vendor/fontello';
+
+// 3. Globalne ustawienia (reset box-sizing, body, linki, img, button)
+@use 'global';
+
+// 4. Layout i typografia (kontenery, grid, nagłówki, paragrafy)
+@use 'layout';
+@use 'typography';
+
+// 5. Partiale stron / komponentów
 @use 'pages/home';
 @use 'pages/products';
 @use 'pages/about';
 @use 'pages/contact';
+
+// 6. Dodatkowe style komponentów (np. ikony, produkty)
+@use 'icons';
+
+// 7. Media queries na samym dole
+@media (max-width: 768px) {
+  .products__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .products__grid {
+    grid-template-columns: 1fr;
+  }
+  .site-nav { display: none; }
+  .hamburger { display: block; }
+}
+
+
+
 
 // 3) Global styles
 body {

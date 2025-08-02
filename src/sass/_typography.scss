@@ -1,0 +1,61 @@
+// src/sass/_typography.scss
+// Style nagłówków, paragrafów i elementów tekstowych
+@use 'variables' as *;
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+   color: $color-dark;
+  
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+p {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+}
+
+small {
+  font-size: 0.875rem;
+}
+
+// ------------------------------------------
+
+// W głównym pliku style.scss dodaj na końcu:
+
+// Responsywność
+@media (max-width: 768px) {
+  .products__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .products__grid {
+    grid-template-columns: 1fr;
+  }
+  .site-nav {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+}

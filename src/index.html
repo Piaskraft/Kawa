@@ -1,107 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-  >
-  <title>El Tigre Coffee</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="css/style.css">
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/flickity@2/dist/flickity.min.css"
-  >
 
-  <!-- 1) Handlebars globalnie -->
-  <script src="https://cdn.jsdelivr.net/npm/handlebars/dist/handlebars.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>El Tigre Coffee</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flickity@2/dist/flickity.min.css">
+
+    <!-- Handlebars -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars/dist/handlebars.min.js"></script>
 </head>
+
 <body>
 
-  <!-- header -->
-  <header class="site-header">
-    <div class="logo-wrapper">
-      <img src="images/logo.svg" alt="El Tigre Coffee" class="logo">
-    </div>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- main -->
-  <main>
-    <!-- HOME -->
-    <section id="home" class="page hero active">
-      <img src="images/hero-coffee.jpg" alt="Coffee beans" class="hero__bg">
-      <div class="hero__overlay"></div>
-      <div class="hero__content">
-        <h1 id="random-header" class="hero__title">
-          Welcome to El Tigre Coffee
-        </h1>
-        <a href="#products" class="hero__cta">DISCOVER</a>
-        <span class="hero__scroll">&#x25BC;</span>
-      </div>
-    </section>
-
-    <!-- PRODUCTS -->
-    <section id="products" class="page products">
-      <h2 class="section-title products__title">PRODUCTS</h2>
-      <div class="products__grid"></div>
-      <div id="products-container"></div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="page about">
-      <h2 class="section-title about__title">ABOUT US</h2>
-      <div class="about__banner"></div>
-      <div class="carousel">
-        <div class="carousel-cell">
-          <img src="images/person1.jpg" alt="Jan Kowalski">
-          <h3>Jan Kowalski</h3>
-          <p>Opis pracownika nr 1.</p>
+    <!-- header -->
+    <header class="site-header">
+        <div class="logo-wrapper">
+            <img src="images/logo.svg" alt="El Tigre Coffee" class="logo">
         </div>
-        <div class="carousel-cell">
-          <img src="images/person2.jpg" alt="Anna Nowak">
-          <h3>Anna Nowak</h3>
-          <p>Opis pracownika nr 2.</p>
-        </div>
-        <div class="carousel-cell">
-          <img src="images/person3.jpg" alt="Piotr Wiśniewski">
-          <h3>Piotr Wiśniewski</h3>
-          <p>Opis pracownika nr 3.</p>
-        </div>
-      </div>
-    </section>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- CONTACT -->
-    <section id="contact" class="page contact">
-      <h2 class="section-title contact__title">CONTACT US</h2>
-      <form id="contact-form" class="contact__form">
-        <label>
-          <span>Name</span>
-          <input type="text" name="name" required>
-        </label>
-        <label>
-          <span>Title</span>
-          <input type="text" name="title" required>
-        </label>
-        <label>
-          <span>Message</span>
-          <textarea name="message" rows="5" required></textarea>
-        </label>
-        <button type="submit" class="btn btn--gold">SUBMIT</button>
-      </form>
-    </section>
-  </main>
+    <!-- main -->
+    <main>
+        <!-- HOME -->
+        <section id="home" class="page hero active">
+            <img src="images/hero-coffee.jpg" alt="Coffee beans" class="hero__bg">
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
+                <h1 id="random-header" class="hero__title">
+                    Welcome to El Tigre Coffee
+                </h1>
+                <a href="#products" class="hero__cta">DISCOVER</a>
+                <span class="hero__scroll">&#x25BC;</span>
+            </div>
+        </section>
 
-  <!-- Szablon Handlebars -->
-  <script id="product-template" type="text/x-handlebars-template">
+        <!-- PRODUCTS -->
+        <section id="products" class="page products">
+            <h2 class="section-title products__title">
+                <i class="icon-cart"></i>
+                PRODUCTS
+            </h2>
+            <div class="products__grid"></div>
+        </section>
+
+
+        <!-- ABOUT -->
+        <section id="about" class="page about">
+            <h2 class="section-title about__title">ABOUT US</h2>
+            <div class="about__banner"></div>
+            <div class="carousel">
+                <div class="carousel-cell">
+                    <img src="images/person1.jpg" alt="Jan Kowalski">
+                    <h3><i class="icon-heart"></i> Jan Kowalski</h3>
+                    <p>Opis pracownika nr 1.</p>
+                </div>
+                <div class="carousel-cell">
+                    <img src="images/person2.jpg" alt="Anna Nowak">
+                    <h3><i class="icon-heart"></i> Anna Nowak</h3>
+                    <p>Opis pracownika nr 2.</p>
+                </div>
+                <div class="carousel-cell">
+                    <img src="images/person3.jpg" alt="Piotr Wiśniewski">
+                    <h3><i class="icon-heart"></i> Piotr Wiśniewski</h3>
+                    <p>Opis pracownika nr 3.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="page contact">
+            <h2 class="section-title contact__title">CONTACT US</h2>
+            <form id="contact-form" class="contact__form">
+                <label>
+                    <span>Name</span>
+                    <input type="text" name="name" required>
+                </label>
+                <label>
+                    <span>Title</span>
+                    <input type="text" name="title" required>
+                </label>
+                <label>
+                    <span>Message</span>
+                    <textarea name="message" rows="5" required></textarea>
+                </label>
+                <button type="submit" class="btn btn--gold">SUBMIT</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Szablon Handlebars -->
+    <script id="product-template" type="text/x-handlebars-template">
     <div class="product-card">
       {{#if badge}}<span class="badge">{{badge}}</span>{{/if}}
       <img src="{{image}}" alt="{{name}}">
@@ -118,32 +117,33 @@
     </div>
   </script>
 
-  <!-- Flickity carousel -->
-  <script src="https://cdn.jsdelivr.net/npm/flickity@2/dist/flickity.pkgd.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const elem = document.querySelector('.carousel');
-      if (!elem) return;
-      new Flickity(elem, {
-        autoPlay: 5000,
-        pauseAutoPlayOnHover: false,
-        prevNextButtons: false,
-        pageDots: false,
-        wrapAround: true,
-        cellAlign: 'center'
-      });
-    });
-  </script>
+    <!-- Flickity -->
+    <script src="https://cdn.jsdelivr.net/npm/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const elem = document.querySelector('.carousel');
+            if (!elem) return;
+            new Flickity(elem, {
+                autoPlay: 5000,
+                pauseAutoPlayOnHover: false,
+                prevNextButtons: false,
+                pageDots: false,
+                wrapAround: true,
+                cellAlign: 'center'
+            });
+        });
+    </script>
 
-  <!-- Twoja logika nawigacji i obsługi sekcji -->
-  <script type="module" src="js/script.js"></script>
+    <!-- Nawigacja sekcjami (Twój script.js) -->
+    <script type="module" src="js/script.js"></script>
+    <!-- Główny skrypt Handlebars jako moduł -->
+     <script src="js/main.js" defer></script>
 
-  <!-- Główny kod Handlebars -->
-  <script src="js/main.js" defer></script>
 
-  <!-- stopka -->
-  <footer class="site-footer">
-    <p>© 2021 EL TIGRE inc.</p>
-  </footer>
+    <!-- stopka -->
+    <footer class="site-footer">
+        <p>© 2021 EL TIGRE inc.</p>
+    </footer>
 </body>
+
 </html>

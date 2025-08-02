@@ -1,0 +1,39 @@
+// src/sass/_global.scss
+
+// Import zmiennych, aby można było korzystać z $font-base, $color-* itd.
+@use 'variables' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-base, sans-serif;
+  line-height: 1.6;
+  color: $color-dark;
+  background-color: $color-light;
+}
+
+a {
+  color: $color-gold;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
